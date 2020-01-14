@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(panjang.equals("")||lebar.equals("")||tinggi.equals("")){
                     Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
+                    etPanjang.setError("Field Panjang harus diisi");
+                    etLebar.setError("Field Lebar harus diisi");
+                    etTinggi.setError("Field Tinggi harus diisi");
                 }
                 else{
                     p=Double.valueOf(panjang);
