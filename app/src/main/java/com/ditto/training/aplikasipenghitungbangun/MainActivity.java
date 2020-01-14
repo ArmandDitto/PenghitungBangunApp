@@ -36,9 +36,14 @@ public class MainActivity extends AppCompatActivity {
                 lebar=etLebar.getText().toString().trim();
                 tinggi=etTinggi.getText().toString().trim();
 
-                p=Double.valueOf(panjang);
-                l=Double.valueOf(lebar);
-                t=Double.valueOf(tinggi);
+                if(panjang.equals("")||lebar.equals("")||tinggi.equals("")){
+                    Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    p=Double.valueOf(panjang);
+                    l=Double.valueOf(lebar);
+                    t=Double.valueOf(tinggi);
+                }
 
                 volume=(p*l*t)/2;
 
