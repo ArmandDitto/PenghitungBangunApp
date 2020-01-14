@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AplikasiPenghitungBangun</string>
+    <string name="tvpanjang">Panjang</string>
+    <string name="tvlebar">Lebar</string>
+    <string name="tvtinggi">Tinggi</string>
+    <string name="btnhitung">Hitung</string>
+    <string name="tvhasil">HASIL</string>
+</resources>
