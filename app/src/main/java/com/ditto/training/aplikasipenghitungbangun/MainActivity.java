@@ -36,10 +36,31 @@ public class MainActivity extends AppCompatActivity {
                 lebar=etLebar.getText().toString().trim();
                 tinggi=etTinggi.getText().toString().trim();
 
-                if(panjang.equals("")||lebar.equals("")||tinggi.equals("")){
+                if(panjang.equals("")&&lebar.equals("")&&tinggi.equals("")){
                     Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
                     etPanjang.setError("Field Panjang harus diisi");
                     etLebar.setError("Field Lebar harus diisi");
+                    etTinggi.setError("Field Tinggi harus diisi");
+                }
+                else if(panjang.equals("")){
+                    Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
+                    etPanjang.setError("Field Panjang harus diisi");
+                    if(lebar.equals("")){
+                        etLebar.setError("Field Lebar harus diisi");
+                    }
+                    else if(tinggi.equals("")){
+                        etTinggi.setError("Field Tinggi harus diisi");
+                    }
+                }
+                else if(lebar.equals("")){
+                    Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
+                    etLebar.setError("Field Lebar harus diisi");
+                    if(tinggi.equals("")){
+                        etTinggi.setError("Field Tinggi harus diisi");
+                    }
+                }
+                else if(tinggi.equals("")){
+                    Toast.makeText(getApplicationContext(),"Semua Field Harus Terisi",Toast.LENGTH_SHORT).show();
                     etTinggi.setError("Field Tinggi harus diisi");
                 }
                 else{
