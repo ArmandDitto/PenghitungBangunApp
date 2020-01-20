@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if(item.getItemId() == android.R.id.home){
@@ -102,5 +107,7 @@ public class MainActivity extends AppCompatActivity {
         outState.putDouble("volume", volume);
         Toast.makeText(getApplicationContext(),"Volume: "+String.valueOf(volume), Toast.LENGTH_SHORT).show();
     }
+
+
 
 }
