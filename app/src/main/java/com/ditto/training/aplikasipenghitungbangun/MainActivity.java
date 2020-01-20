@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private double p,l,t, volume;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -69,13 +70,19 @@ public class MainActivity extends AppCompatActivity {
                     p=Double.valueOf(panjang);
                     l=Double.valueOf(lebar);
                     t=Double.valueOf(tinggi);
+
+                    volume=(p*l*t)/2;
+                    tvHasil.setText(String.valueOf(volume));
                 }
-
-                volume=(p*l*t)/2;
-
-                tvHasil.setText("Luas: "+volume);
             }
         });
+
+        if(savedInstanceState!=null){
+            volume = savedInstanceState.getDouble("volume");
+            tvHasil.setText(String.valueOf(volume));
+            Log.i("Value of Volume: ",String.valueOf(volume));
+
+        }
     }
 
     @Override
@@ -88,4 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putDouble("volume", volume);
+        Toast.makeText(getApplicationContext(),"Volume: "+String.valueOf(volume), Toast.LENGTH_SHORT).show();
+    }
+
 }
